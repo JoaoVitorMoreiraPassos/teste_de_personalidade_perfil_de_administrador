@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header{
@@ -18,12 +19,63 @@ main{
     justify-content: center;
     align-items: center;
 }
+
+.description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #ccc;
+}
+
+.description-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+.description-text h4, .description-list h4{
+    margin-bottom: 1rem;
+}
+.description-text{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    margin-bottom: 2rem;
+}
+
+.separator{ 
+    width: 2px;
+    height: 100%;
+    background: #111;
+    margin: 1rem 0;
+}
+
+.description-list{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 45%;
+    margin-bottom: 2rem;
+}
 .questions-container{
     display: flex;
     flex-direction: column;
     width: 90%;
     justify-content: center;
     align-items: center;
+}
+.questions-container h2{
+    margin-bottom: 2rem;
 }
 
 .question-container{
@@ -35,7 +87,7 @@ main{
     font: 2rem ;
     border: 1px solid orange;
     padding: 0.5rem;
-    margin: -1px
+    margin: -0.5px
 }
 
 .label-quest{
@@ -69,6 +121,11 @@ main{
     background: rgb(209, 140, 12);
     color: #ccc;
 }
+
+.result-text{
+    width: 50%;
+    text-align: justify;
+}
 .graphic-personality{
     display: flex;
     justify-content: center;
@@ -81,6 +138,21 @@ main{
     height: 1080px;
 }
 
+
+footer{
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    background: orange;
+    color: #fff;
+}
+footer a{
+    /* text-decoration: none; */
+    color: #111;
+}
+
 @media screen and (max-width: 1080px) {
     .graphic{width: 960px; height: 960px;}
 }
@@ -91,7 +163,21 @@ main{
     .graphic{width: 720px; height: 720px;}
 }
 @media screen and (max-width: 720px) {
-    .graphic{width: 680px; height: 680px;}
+    .description-container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .description-text{
+        width: 90%;
+        border-left: none;
+    }
+    .description-list ol{
+        margin-left: 2rem;
+    }
+
+    .graphic{
+        width: 680px; height: 680px;
+    }
 }
 @media screen and (max-width:512px) {
     .graphic{width: 480px; height: 480px;}

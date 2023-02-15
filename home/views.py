@@ -29,13 +29,13 @@ def index(request):
         print(ip)
         headers = None
         values = dict(request.POST)
-        values = values['test']
+        values = values['resposta']
         values = list(map(lambda x: 1 if x == "" else int(x), values))
         with (open("utils/home/headers.txt", "r")) as file:
             file = file.read()
             file = file.split("\n")
             headers = file
-
+        headers = list(map(lambda x: x+".", headers))
         groups = [
             [0, 10, 20],
             [9, 19, 21],
@@ -64,22 +64,24 @@ def index(request):
 
         # Adicione as linhas do gráfico:
         ax.plot(angulos, values, marker="*")
-        ax.fill(angulos, values, 'teal', alpha=0)
+        ax.fill(angulos, values, 'teal', alpha=1)
 
         ax.set_ylim([0, 15])  # Fixando o limite do eixo radial em 15
-        ax.set_rgrids(range(0, 16, 1))
-        ax.set_thetagrids([a * 360 / 16 for a in range(10)], labels=headers)
+        ax.set_rgrids(range(0, 16, 1), fontsize=16)
+        ax.set_thetagrids([a * 360 / 16 for a in range(10)],
+                          labels=headers,
+                          fontsize=20)
 
         # Adicione as headers como rótulos:
         ax.set_xticks(angulos[:-1])
         ax.set_xticklabels(headers, y=0.1, fontsize=15)
 
         # Adicione uma legenda:
-        ax.set_title("Seu Resultado", fontsize=20, y=1.1)
+        # ax.set_title("Seu Resultado", fontsize=20, y=1.1)
         try:
             os.system("mkdir media/home/" + ip)
         except Exception:
-            ...
+            pass
         plt.savefig(f"media/home/{ip}/img.png")
 
         img = Imagem.objects.filter(name=ip)
