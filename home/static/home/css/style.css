@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    background: orange;
+    color: #fff;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.questions-container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    font: 2rem ;
+    border: 1px solid orange;
+    padding: 0.5rem;
+    margin: -1px
+}
+
+.label-quest{
+    width: 80%;
+}
+
+.input-quest{
+    height: 3rem;
+    width: 20%;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 1rem;
+    border: 1px solid orange;
+    outline: none;
+    margin-left: 1rem;
+}
+
+.submit-button{
+    margin: 2rem;
+    width: 12rem;
+    height: 3rem;
+    background: orange;
+    color: #fff;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.submit-button:hover{
+    background: rgb(209, 140, 12);
+    color: #ccc;
+}
+.graphic-personality{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.graphic{
+    width: 1080px;
+    height: 1080px;
+}
+
+@media screen and (max-width: 1080px) {
+    .graphic{width: 960px; height: 960px;}
+}
+@media screen and (max-width: 960px) {
+    .graphic{width: 900px; height: 900px;}
+}
+@media screen and (max-width: 800px) {
+    .graphic{width: 720px; height: 720px;}
+}
+@media screen and (max-width: 720px) {
+    .graphic{width: 680px; height: 680px;}
+}
+@media screen and (max-width:512px) {
+    .graphic{width: 480px; height: 480px;}
+}
+@media screen and (max-width:480px) {
+    .graphic{width: 420px; height: 420px;}
+}
+@media screen and (max-width:420px) {
+    .graphic{width: 360px; height: 360px;}
+}

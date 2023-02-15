@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de personalidade</title>
+    <link rel="stylesheet" href="{%static 'home/css/style.css'%}">
+</head>
+<body>
+    <header>
+        <h1>Teste de personalidade</h1>
+    </header>
+
+    <main> 
+        {% if have_image == True %}
+            <div class="graphic-personality">
+                <img class="graphic" src="{{ img.image }}">
+            </div>
+        {%endif%}
+        {% if have_image != True%}
+            <form method="POST" class="questions-container">
+                {% for i in labels%}
+                <div class="question-container">
+                    <label class="label-quest" for={{i}}>{{i}}</label>
+                    <input class="input-quest" type="number" value="3" id={{i}} name="test" min="1" max="5">
+                </div>
+                {% endfor %}
+                <button type="" class="submit-button">Enviar</button>
+            </form>
+        {%endif%}
+    </main>
+</body>
+</html>
