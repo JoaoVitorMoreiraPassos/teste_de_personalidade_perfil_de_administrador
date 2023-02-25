@@ -1,69 +1,79 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="PT-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste de personalidade</title>
     <link rel="stylesheet" href="{%static 'home/css/style.css'%}">
 </head>
+
 <body>
     <header>
         <h1>Teste de personalidade</h1>
     </header>
 
-    <main> 
+    <main>
         {% if have_image == True %}
-            <div class="result-text">
-                <h3>O gráfico abaixo numera algumas das suas caracteristicas de
-                    acordo com a sua autoavaliação.
-                </h3>
-                
-            </div>
-            <div class="graphic-personality">
-                <img class="graphic" src="{{ img.image }}">
-            </div>
+        <div class="result-text">
+            <h3>O gráfico abaixo numera algumas das suas caracteristicas de
+                acordo com a sua autoavaliação.
+            </h3>
+
+        </div>
+        <div class="graphic-personality">
+            <img class="graphic" src="{{ img.image }}">
+        </div>
         {%endif%}
         {% if have_image != True%}
-            <section class="description">
+        <section class="description">
+            <p>
+                Este é um teste de Autoavaliação das Características do
+                Comportamento Empreendedor. O objetivo é identificar
+                os comportamentos empreendedores que você possui e que podem ser desenvolvidos.
+            </p>
+        </section>
+        <section class="description-container">
+            <div class="description-text">
+                <h4>Autoavaliação</h4>
                 <p>
-                    Este é um teste de Autoavaliação das Características do
-                    Comportamento Empreendedor (ACE). O objetivo é identificar
-                    os comportamentos empreendedores que você possui e que podem ser desenvolvidos.
+                    Para preencher a autoavaliação reflita e escolha o número que melhor descreva a sua
+                    prática no dia a dia, conforme cada comportamento listado.
                 </p>
-            </section>
-            <section class="description-container">
-                <div class="description-text">
-                    <h4>Autoavaliação</h4>
-                    <p>
-                        Para preencher a autoavaliação reflita e escolha o número que melhor descreva a sua
-                        prática no dia a dia, conforme cada comportamento listado.
-                    </p>
-                </div>
-                <div class="separator"></div>
-                <div class="description-list">
-                    <h4>Critérios</h4>
-                    <ol>
-                        <li>Nunca pratico este comportamento</li>
-                        <li>Raramente pratico este comportamento</li>
-                        <li>Às vezes pratico este comportamento</li>
-                        <li>Muitas vezes pratico este comportamento</li>
-                        <li>Sempre pratico este comportamento</li>
-                    </ol>
-                </div>
-            </section>
-            <form method="POST" class="questions-container">
+            </div>
+            <div class="separator"></div>
+            <div class="description-list">
+                <h4>Critérios</h4>
+                <ol>
+                    <li>Nunca pratico este comportamento</li>
+                    <li>Raramente pratico este comportamento</li>
+                    <li>Às vezes pratico este comportamento</li>
+                    <li>Muitas vezes pratico este comportamento</li>
+                    <li>Sempre pratico este comportamento</li>
+                </ol>
+            </div>
+        </section>
+        <form method="POST" class="questions-container">
+            <div class="question-container">
                 <h2>
                     Formulário de autoavaliação
                 </h2>
-                {% for i in labels%}
-                <div class="question-container">
-                    <label class="label-quest" for={{i}}>{{i}}</label>
-                    <input class="input-quest" type="number" value="3" id={{i}} name="resposta" min="1" max="5">
-                </div>
-                {% endfor %}
-                <button type="" class="submit-button">Enviar</button>
-            </form>
+            </div>
+            {% for i in labels%}
+            <div class="question-container">
+                <label class="label-quest" for={{i}}>{{i}}</label>
+                <input class="input-quest" type="number" value="3" id={{i}} name="resposta" min="1" max="5">
+            </div>
+            {% endfor %}
+            <section class="description">
+                <p>
+                    Ao finalizar o preenchimento, clique no botão "Enviar" para visualizar o gráfico que representa seu
+                    resultado.
+                </p>
+            </section>
+            <button type="" class="submit-button">Enviar</button>
+        </form>
         {%endif%}
     </main>
 
@@ -71,4 +81,5 @@
         <p>Desenvolvido por <a href="https://www.github.com/joaoVitorMoreiraPassos">João Vitor Moreira Passos</a></p>
     </footer>
 </body>
+
 </html>

@@ -19,6 +19,38 @@ def get_client_ip(request):
     return ip
 
 
+def graph_maker(ip, headers, values):
+    headers_len = len(headers)
+    angulos = [n / float(headers_len) * 2 *
+               np.pi for n in range(headers_len)]
+    angulos += angulos[:1]
+
+    # Crie o gráfico de radar decagonal:
+    fig = plt.figure(figsize=(18, 18))
+    ax = fig.add_subplot(111, polar=True)
+
+    # Adicione as linhas do gráfico:
+    ax.plot(angulos, values, marker="*")
+    ax.fill(angulos, values, 'teal', alpha=1)
+
+    ax.set_ylim([0, 15])  # Fixando o limite do eixo radial em 15
+    ax.set_rgrids(range(0, 16, 1), fontsize=16)
+    ax.set_thetagrids([a * 360 / 16 for a in range(10)],
+                      labels=headers,
+                      fontsize=20)
+
+    # Adicione as headers como rótulos:
+    ax.set_xticks(angulos[:-1])
+    ax.set_xticklabels(headers, y=0.1, fontsize=15)
+
+    # Adicione uma legenda:
+    try:
+        os.system("mkdir media/home/" + ip)
+    except Exception:
+        pass
+    plt.savefig(f"media/home/{ip}/img.png")
+
+
 @csrf_exempt
 def index(request):
     if request.method == "POST":
@@ -53,36 +85,8 @@ def index(request):
             temp.append(sum([values[i[0]], values[i[1]], values[i[2]]]))
         values = temp
         values.append(values[0])
-        headers_len = len(headers)
-        angulos = [n / float(headers_len) * 2 *
-                   np.pi for n in range(headers_len)]
-        angulos += angulos[:1]
 
-        # Crie o gráfico de radar decagonal:
-        fig = plt.figure(figsize=(18, 18))
-        ax = fig.add_subplot(111, polar=True)
-
-        # Adicione as linhas do gráfico:
-        ax.plot(angulos, values, marker="*")
-        ax.fill(angulos, values, 'teal', alpha=1)
-
-        ax.set_ylim([0, 15])  # Fixando o limite do eixo radial em 15
-        ax.set_rgrids(range(0, 16, 1), fontsize=16)
-        ax.set_thetagrids([a * 360 / 16 for a in range(10)],
-                          labels=headers,
-                          fontsize=20)
-
-        # Adicione as headers como rótulos:
-        ax.set_xticks(angulos[:-1])
-        ax.set_xticklabels(headers, y=0.1, fontsize=15)
-
-        # Adicione uma legenda:
-        # ax.set_title("Seu Resultado", fontsize=20, y=1.1)
-        try:
-            os.system("mkdir media/home/" + ip)
-        except Exception:
-            pass
-        plt.savefig(f"media/home/{ip}/img.png")
+        graph_maker(ip, headers, values)
 
         img = Imagem.objects.filter(name=ip)
         if len(img) > 0:

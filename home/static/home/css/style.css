@@ -1,10 +1,16 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-header{
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
     height: 6rem;
     display: flex;
     justify-content: center;
@@ -13,14 +19,15 @@ header{
     background: orange;
     color: #fff;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.description{
+.description {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,19 +38,25 @@ main{
     background: #ccc;
 }
 
-.description-container{
+.description p {
+    text-align: justify;
+}
+
+.description-container {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
-    width: 80%;
+    justify-content: space-around;
+    width: 70%;
     margin-bottom: 2rem;
     padding: 1rem;
 }
-.description-text h4, .description-list h4{
+
+.description-text h4,
+.description-list h4 {
     margin-bottom: 1rem;
 }
-.description-text{
+
+.description-text {
     width: 45%;
     display: flex;
     flex-direction: column;
@@ -52,14 +65,13 @@ main{
     margin-bottom: 2rem;
 }
 
-.separator{ 
-    width: 2px;
-    height: 100%;
+.separator {
+    width: 1px;
+    height: 10rem;
     background: #111;
-    margin: 1rem 0;
 }
 
-.description-list{
+.description-list {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -67,34 +79,38 @@ main{
     width: 45%;
     margin-bottom: 2rem;
 }
-.questions-container{
+
+.questions-container {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 80%;
     justify-content: center;
     align-items: center;
 }
-.questions-container h2{
-    margin-bottom: 2rem;
-}
 
-.question-container{
+.question-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    font: 2rem ;
+    font: 2rem;
     border: 1px solid orange;
     padding: 0.5rem;
-    margin: -0.5px
+    margin-bottom: 1rem;
 }
 
-.label-quest{
+.question-container h2 {
+    align-self: center;
+    justify-self: center;
+    margin-bottom: 2rem;
+}
+
+.label-quest {
     width: 80%;
 }
 
-.input-quest{
+.input-quest {
     height: 3rem;
     width: 20%;
     font-size: 1.2rem;
@@ -105,8 +121,8 @@ main{
     margin-left: 1rem;
 }
 
-.submit-button{
-    margin: 2rem;
+.submit-button {
+    /* margin: 2rem; */
     width: 12rem;
     height: 3rem;
     background: orange;
@@ -117,29 +133,31 @@ main{
     border: none;
     cursor: pointer;
 }
-.submit-button:hover{
+
+.submit-button:hover {
     background: rgb(209, 140, 12);
     color: #ccc;
 }
 
-.result-text{
+.result-text {
     width: 50%;
     text-align: justify;
 }
-.graphic-personality{
+
+.graphic-personality {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-.graphic{
+.graphic {
     width: 1080px;
     height: 1080px;
 }
 
 
-footer{
+footer {
     height: 6rem;
     display: flex;
     justify-content: center;
@@ -148,43 +166,80 @@ footer{
     background: orange;
     color: #fff;
 }
-footer a{
-    /* text-decoration: none; */
+
+footer a {
     color: #111;
 }
 
 @media screen and (max-width: 1080px) {
-    .graphic{width: 960px; height: 960px;}
+    .graphic {
+        width: 960px;
+        height: 960px;
+    }
 }
+
 @media screen and (max-width: 960px) {
-    .graphic{width: 900px; height: 900px;}
+    .graphic {
+        width: 900px;
+        height: 900px;
+    }
 }
+
 @media screen and (max-width: 800px) {
-    .graphic{width: 720px; height: 720px;}
+    .graphic {
+        width: 720px;
+        height: 720px;
+    }
 }
+
 @media screen and (max-width: 720px) {
-    .description-container{
+    .description-container {
         flex-direction: column;
         align-items: center;
     }
-    .description-text{
+
+    .description-text {
         width: 90%;
         border-left: none;
     }
-    .description-list ol{
+
+    .separator {
+        height: 1px;
+        width: 20rem;
+        margin-bottom: 2rem;
+    }
+
+    .description-list {
+        width: 90%;
+    }
+
+    .description-list ol {
         margin-left: 2rem;
     }
 
-    .graphic{
-        width: 680px; height: 680px;
+    .graphic {
+        width: 680px;
+        height: 680px;
     }
 }
+
 @media screen and (max-width:512px) {
-    .graphic{width: 480px; height: 480px;}
+    .graphic {
+        width: 480px;
+        height: 480px;
+    }
 }
+
 @media screen and (max-width:480px) {
-    .graphic{width: 420px; height: 420px;}
+    .graphic {
+        width: 420px;
+        height: 420px;
+    }
 }
+
 @media screen and (max-width:420px) {
-    .graphic{width: 360px; height: 360px;}
+    .graphic {
+        width: 360px;
+        height: 360px;
+    }
 }
